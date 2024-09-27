@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=vietnamese" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" class="app">
+        <header>
+          <div class="header-left">
+            <a href="#" class="logo">
+              <img src="./img/image.png/image.png" alt="Logo">
+            </a>
+            <nav>
+              <a href="#">NAM <i class="fas fa-chevron-down"></i>
+                <ul>
+                  <li>Quần Nam</li>
+                  <li>Áo Nam</li>
+                  <li>Giày & phụ kiện</li>
+                  
+                </ul>
+              </a>
+              <a href="#">NỮ <i class="fas fa-chevron-down"></i>
+                <ul>
+                  <li>Quần Nữ</li>
+                  <li>Áo Nữ</li>
+                  <li>Giày & phụ kiện cho phái Nữ</li>
+                </ul>
+              </a>
+              <a href="#">NEW</a>
+              <a href="#">BEST</a>
+              <a href="#" class="highlight">ƯU ĐÃI</a>
+            </nav>
+            <nav class="mobile-sidebar" id="mobileSidebar">
+              <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i> <!-- Icon menu hamburger -->
+              </button>
+              <a href="#">NAM <i class="fas fa-chevron-down"></i>
+                <ul>
+                  <li>Quần Nam</li>
+                  <li>Áo Nam</li>
+                  <li>Giày & phụ kiện</li>
+                </ul>
+              </a>
+              <a href="#">NỮ <i class="fas fa-chevron-down"></i>
+                <ul>
+                  <li>Quần Nữ</li>
+                  <li>Áo Nữ</li>
+                  <li>Giày & phụ kiện cho phái Nữ</li>
+                </ul>
+              </a>
+              <a href="#">NEW</a>
+              <a href="#">BEST</a>
+              <a href="#" class="highlight">ƯU ĐÃI</a>
+              <button class="close-btn" id="closeBtn" aria-label="Close menu">
+                <i class="fas fa-times"></i> <!-- Icon đóng menu -->
+              </button>
+            </nav>
+          </div>
+          <div class="header-right">
+            <div class="search-bar">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Tìm kiếm">
+            </div>
+            <div class="icons">
+                <a href="#"><i class="fas fa-user"></i>
+                  <ul>
+                    <li>Đăng Nhập</li>
+                    <li>Đăng Ký</li>
+                  </ul>
+                </a>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+              </div>
+          </div>
+        </header>
+        <div class="slideshow-container-1">
+          <a class="prev" @click="plusSlides1(-1)">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <div class="slides-wrapper" :style="{ transform: `translateX(-${slideIndex1 * 100}%)` }">
+            <div v-for="(slide, index) in slides1" :key="index" class="slide">
+              <img :src="slide.img" :alt="slide.alt">
+            </div>
+          </div>
+          <a class="next" @click="plusSlides1(1)">
+            <i class="fas fa-chevron-right"></i>
+          </a>
+          <div class="thanhtruot">
+            <span
+              v-for="(slide, index) in slides1"
+              :key="index"
+              class="chamtron"
+              :class="{ active: index === slideIndex1 }"
+              @click="currentSlide1(index)">
+            </span> 
+          </div>
+        </div>
+        <div class="img-link">
+          <div class="img-link-item">
+            <img src="./img/outlet_sale_t824_19-8_1__jpg.webp" alt="Image Link 1">
+          </div>
+          <div class="img-link-item">
+            <img src="./img/outlet_sale_t824_19-8_2__jpg.webp" alt="Image Link 1">
+          </div>
+          <div class="img-link-item">
+            <img src="./img/outlet_sale_t824_20-8_jpg.webp" alt="Image Link 1">
+          </div>
+        </div>
+        <div class="titile-1">
+          <h2>Hàng NEW</h2>
+        </div>
+        <div class="img-link-2">
+          <div class="img-link-item-2">
+            <img src="./img/shopping (1).webp" alt="Image Link 1">
+            <div class="price">
+              <h4>áo thể thao</h4>
+              <span>250.000Đ</span>
+              <button class="buy-now">Mua <i class="fas fa-shopping-cart"></i></button>
+              <button class="add-to-cart">Thêm<i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+          <div class="img-link-item-2">
+            <img src="./img/shopping (1).webp" alt="Image Link 1">
+            <div class="price">
+              <h4>áo thể thao</h4>
+              <span>250.000Đ</span>
+              <button class="buy-now">Mua <i class="fas fa-shopping-cart"></i></button>
+              <button class="add-to-cart">Thêm<i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+          <div class="img-link-item-2">
+            <img src="./img/shopping (2).webp" alt="Image Link 1">
+            <div class="price">
+              <h4>áo thể thao</h4>
+              <span>250.000Đ</span>
+              <button class="buy-now">Mua <i class="fas fa-shopping-cart"></i></button>
+              <button class="add-to-cart">Thêm<i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+          <div class="img-link-item-2">
+            <img src="./img/shopping (3).webp" alt="Image Link 1">
+            <div class="price">
+              <h4>áo thể thao</h4>
+              <span>250.000Đ</span>
+              <button class="buy-now">Mua <i class="fas fa-shopping-cart"></i></button>
+              <button class="add-to-cart">Thêm<i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="titile-1">
+          <h2>Hàng NEW</h2>
+        </div>
+        <div class="img-link-2">
+          <div class="img-link-item-2">
+            <img src="./img/shopping (1).webp" alt="Image Link 1">
+            <div class="price">
+              <h4>Áo thể thao</h4>
+              <span>250.000Đ</span>
+              <button class="buy-now">Mua <i class="fas fa-shopping-cart"></i></button>
+              <button class="add-to-cart">Thêm<i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+          <div class="img-link-item-2">
+            <img src="./img/shopping (1).webp" alt="Image Link 1">
+            <div class="price">
+              <h4>áo thể thao</h4>
+              <span>250.000Đ</span>
+              <button class="buy-now">Mua <i class="fas fa-shopping-cart"></i></button>
+              <button class="add-to-cart">Thêm<i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+          <div class="img-link-item-2">
+            <img src="./img/shopping (2).webp" alt="Image Link 1">
+            <div class="price">
+              <h4>áo thể thao</h4>
+              <span>250.000Đ</span>
+              <button class="buy-now">Mua <i class="fas fa-shopping-cart"></i></button>
+              <button class="add-to-cart">Thêm<i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+          <div class="img-link-item-2">
+            <img src="./img/shopping (3).webp" alt="Image Link 1">
+            <div class="price">
+              <h4>áo thể thao</h4>
+              <span>250.000Đ</span>
+              <button class="buy-now">Mua <i class="fas fa-shopping-cart"></i></button>
+              <button class="add-to-cart">Thêm<i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="footer-container">
+          <div class="footer-section">
+            <img class="logo" src="./img/image.png/image.png" alt="">
+            <p>Shop Thời Trang Manh & Thành</p>
+            <p>Công Ty TNHH Shop Thời trang Manh & Thanh</p>
+          </div>
+          <div class="footer-section">
+            <h3>CÔNG TY</h3>
+            <ul>
+              <li><a href="#">Giới thiệu về ROUTINE</a></li>
+              <li><a href="#">Tin thời trang</a></li>
+              <li><a href="#">In ấn đồng phục</a></li>
+              <li><a href="#">Hợp tác nhượng quyền</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>CHĂM SÓC KHÁCH HÀNG</h3>
+            <ul>
+              <li><a href="#">Chính sách khách hàng thân thiết</a></li>
+              <li><a href="#">Chính sách đổi trả</a></li>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>THÔNG TIN CỬA HÀNG</h3>
+            <ul>
+              <li><a href="#">Cửa hàng thứ 34</a></li>
+              <li><a href="#">Cửa hàng thứ 33</a></li>
+              <li><a href="#">Cửa hàng thứ 32</a></li>
+              <li><a href="#">Xem tất cả các cửa hàng</a></li>
+            </ul>
+          </div>
+          <div class="footer-section social-media">
+            <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+            <p>@ 2024 bản quyền thuộc về cá nhân Mạnh & Thành mục đích học tập, không thương mại!</p>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                slideIndex1: 0,
+                slideInterval1: null,
+                slides1: [
+                    { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 1' },
+                    { img: './img/images.jpg', alt: 'Slide 2' },
+                    { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 3' },
+                    { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 4' },
+                    { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 5' }
+                ]
+                };
+            },
+            methods: {
+                plusSlides1(n) {
+                this.slideIndex1 = (this.slideIndex1 + n + this.slides1.length) % this.slides1.length;
+                },
+                startSlideShow1() {
+                this.slideInterval1 = setInterval(() => {
+                    this.plusSlides1(1);
+                }, 5000);
+                },
+                stopSlideShow1() {
+                clearInterval(this.slideInterval1);
+                },
+                currentSlide1(index) {
+                this.stopSlideShow1();
+                this.slideIndex1 = index;
+                this.startSlideShow1();
+                }
+            },
+            mounted() {
+                this.startSlideShow1();
+            },
+            beforeUnmount() {
+                this.stopSlideShow1();
+            }
+        });
+    </script>
+</body>
+<script src="./main.js"></script>
+</html>
