@@ -203,7 +203,7 @@
                       { id: 3, name: 'Áo thể thao', price: 250000, img: './img/shopping (3).webp' },
                       { id: 4, name: 'Áo thể thao', price: 250000, img: './img/shopping (3).webp' }
                   ],
-                  cart: [] // Giỏ hàng
+                  cart: JSON.parse(localStorage.getItem('cart')) || []
               };
           },
           methods: {
@@ -261,7 +261,7 @@
                     this.stopSlideShow1();
                 }
             });
-      </script>   
+    </script>   
 </body>
 <script src="./main.js"></script>
 </html>

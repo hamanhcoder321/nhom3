@@ -44,4 +44,4 @@
             localStorage.setItem('cart', JSON.stringify(updatedCart));
             location.reload(); // Tải lại trang để cập nhật giao diện
         }
-    });
+});
