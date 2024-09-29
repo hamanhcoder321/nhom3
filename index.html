@@ -231,10 +231,13 @@
                   } else {
                       this.cart.push({ ...product, quantity: 0 }); // Nếu chưa có, thêm mới
                   }
+                  alert(`Bạn đã thêm ${product.name} với giá ${product.price.toLocaleString()} VND`);
+                  
                   // Lưu giỏ hàng vào localStorage
                   localStorage.setItem('cart', JSON.stringify(this.cart));
+
                   // Chuyển hướng tới trang giỏ hàng (cart.html)
-                  window.location.href = './Giohang/giohang.html'; // Đường dẫn tới trang giỏ hàng
+                 // window.location.href = './Giohang/giohang.html'; // Đường dẫn tới trang giỏ hàng
               },
               // Mua hàng và lưu vào localStorage, sau đó chuyển hướng đến trang giỏ hàng
               buyNow(product) {
@@ -254,7 +257,7 @@
                   alert(`Bạn đã mua ${product.name} với giá ${product.price.toLocaleString()} VND`);
                   
                   // Chuyển hướng tới trang giỏ hàng hoặc thanh toán
-                  window.location.href = './Giohang/giohang.html'; // Đường dẫn tới trang giỏ hàng/thanh toán
+                  //window.location.href = './Giohang/giohang.html'; // Đường dẫn tới trang giỏ hàng/thanh toán
               },
               // Xem tổng số sản phẩm trong giỏ hàng
               cartItemCount() {
