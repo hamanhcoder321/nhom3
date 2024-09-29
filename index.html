@@ -185,92 +185,78 @@
     </div>
     <script>
       new Vue({
-          el: '#app',
-          data() {
-              return {
-                  slideIndex1: 0,
-                  slideInterval1: null,
-                  slides1: [
-                      { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 1' },
-                      { img: './img/images.jpg', alt: 'Slide 2' },
-                      { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 3' },
-                      { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 4' },
-                      { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 5' }
-                  ],
-                  products: [
-                      { id: 1, name: 'Áo thể thao', price: 250000, img: './img/shopping (1).webp' },
-                      { id: 2, name: 'Áo thể thao', price: 250000, img: './img/shopping (2).webp' },
-                      { id: 3, name: 'Áo thể thao', price: 250000, img: './img/shopping (3).webp' },
-                      { id: 4, name: 'Áo thể thao', price: 250000, img: './img/shopping (3).webp' }
-                  ],
-                  cart: JSON.parse(localStorage.getItem('cart')) || []
-              };
-          },
-          methods: {
-              plusSlides1(n) {
-                  this.slideIndex1 = (this.slideIndex1 + n + this.slides1.length) % this.slides1.length;
+              el: '#app',
+              data() {
+                  return {
+                      slideIndex1: 0,
+                      slideInterval1: null,
+                      slides1: [
+                          { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 1' },
+                          { img: './img/images.jpg', alt: 'Slide 2' },
+                          { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 3' },
+                          { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 4' },
+                          { img: './img/banner-thoi-trang-dep.jpg', alt: 'Slide 5' }
+                      ],
+                      products: [
+                          { id: 1, name: 'Áo thể thao', price: 250000, img: './img/shopping (1).webp' },
+                          { id: 2, name: 'Áo thể thao', price: 250000, img: './img/shopping (2).webp' },
+                          { id: 3, name: 'Áo thể thao', price: 250000, img: './img/shopping (3).webp' },
+                          { id: 4, name: 'Áo thể thao', price: 250000, img: './img/shopping (3).webp' }
+                      ],
+                      cart: JSON.parse(localStorage.getItem('cart')) || []
+                  };
               },
-              startSlideShow1() {
-                  this.slideInterval1 = setInterval(() => {
-                      this.plusSlides1(1);
-                  }, 5000);
+              methods: {
+                  plusSlides1(n) {
+                      this.slideIndex1 = (this.slideIndex1 + n + this.slides1.length) % this.slides1.length;
+                  },
+                  startSlideShow1() {
+                      this.slideInterval1 = setInterval(() => {
+                          this.plusSlides1(1);
+                      }, 5000);
+                  },
+                  stopSlideShow1() {
+                      clearInterval(this.slideInterval1);
+                  },
+                  currentSlide1(index) {
+                      this.stopSlideShow1();
+                      this.slideIndex1 = index;
+                      this.startSlideShow1();
+                  },
+                  // Chỉ thêm sản phẩm vào giỏ hàng khi người dùng bấm "Thêm vào giỏ"
+                  addToCart(product) {
+                      const cartProduct = this.cart.find(item => item.id === product.id);
+                      if (cartProduct) {
+                          cartProduct.quantity++; // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng
+                      } else {
+                          this.cart.push({ ...product, quantity: 1 }); // Thêm sản phẩm mới vào giỏ hàng với số lượng 1
+                      }
+                      localStorage.setItem('cart', JSON.stringify(this.cart));
+                      alert(`${product.name} đã được thêm vào giỏ hàng!`);
+                  },
+                  // Chỉ thêm sản phẩm và chuyển hướng tới giỏ hàng khi người dùng bấm "Mua ngay"
+                  buyNow(product) {
+                      const cartProduct = this.cart.find(item => item.id === product.id);
+                      if (cartProduct) {
+                          cartProduct.quantity++; // Tăng số lượng nếu sản phẩm đã có trong giỏ
+                      } else {
+                          this.cart.push({ ...product, quantity: 1 }); // Thêm sản phẩm nếu chưa có
+                      }
+                      localStorage.setItem('cart', JSON.stringify(this.cart));
+                      alert(`Bạn đã mua ${product.name} với giá ${product.price.toLocaleString()} VND`);
+                      //window.location.href = './Giohang/giohang.html'; // Điều hướng đến trang giỏ hàng
+                  },
+                  cartItemCount() {
+                      return this.cart.reduce((total, product) => total + product.quantity, 0);
+                  }
               },
-              stopSlideShow1() {
-                  clearInterval(this.slideInterval1);
-              },
-              currentSlide1(index) {
-                  this.stopSlideShow1();
-                  this.slideIndex1 = index;
+              mounted() {
                   this.startSlideShow1();
               },
-                // Thêm sản phẩm vào giỏ hàng và lưu vào localStorage
-              addToCart(product) {
-                  const cartProduct = this.cart.find(item => item.id === product.id);
-                  if (cartProduct) {
-                      cartProduct.quantity++; // Nếu sản phẩm đã có trong giỏ hàng, tăng số lượng
-                  } else {
-                      this.cart.push({ ...product, quantity: 0 }); // Nếu chưa có, thêm mới
-                  }
-                  alert(`Bạn đã thêm ${product.name} với giá ${product.price.toLocaleString()} VND`);
-                  
-                  // Lưu giỏ hàng vào localStorage
-                  localStorage.setItem('cart', JSON.stringify(this.cart));
-
-                  // Chuyển hướng tới trang giỏ hàng (cart.html)
-                 // window.location.href = './Giohang/giohang.html'; // Đường dẫn tới trang giỏ hàng
-              },
-              // Mua hàng và lưu vào localStorage, sau đó chuyển hướng đến trang giỏ hàng
-              buyNow(product) {
-                  // Kiểm tra nếu sản phẩm đã có trong giỏ hàng
-                  const cartProduct = this.cart.find(item => item.id === product.id);
-                  
-                  if (cartProduct) {
-                      cartProduct.quantity++; // Nếu sản phẩm đã có, tăng số lượng
-                  } else {
-                      this.cart.push({ ...product, quantity: 1 }); // Nếu chưa có, thêm sản phẩm với số lượng 1
-                  }
-
-                  // Lưu giỏ hàng vào localStorage
-                  localStorage.setItem('cart', JSON.stringify(this.cart));
-
-                  // Hiển thị thông báo cho người dùng
-                  alert(`Bạn đã mua ${product.name} với giá ${product.price.toLocaleString()} VND`);
-                  
-                  // Chuyển hướng tới trang giỏ hàng hoặc thanh toán
-                  //window.location.href = './Giohang/giohang.html'; // Đường dẫn tới trang giỏ hàng/thanh toán
-              },
-              // Xem tổng số sản phẩm trong giỏ hàng
-              cartItemCount() {
-              return this.cart.reduce((total, product) => total + product.quantity, 0);
+              beforeUnmount() {
+                  this.stopSlideShow1();
               }
-                },
-                mounted() {
-                    this.startSlideShow1();
-                },
-                beforeUnmount() {
-                    this.stopSlideShow1();
-                }
-            });
+          });
     </script>   
 </body>
 <script src="./main.js"></script>
