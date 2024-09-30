@@ -282,6 +282,7 @@ header {
 }
 
 .search-bar input {
+  width: 150px;
   border: none;
   outline: none;
   font-size: 16px;
@@ -295,7 +296,7 @@ header {
 }
 
 .search-bar input:focus {
-  width: 250px; /* Mở rộng khi được chọn */
+  width: 190px; /* Mở rộng khi được chọn */
 }
 
 .icons {
