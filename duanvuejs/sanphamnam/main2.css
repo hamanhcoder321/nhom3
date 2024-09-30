@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+/* Style cho header */
+.header {
+    display: flex;
+    justify-content: space-around; /* Căn giữa các item trong header */
+    align-items: center; /* Căn giữa các item trong header */
+    padding: 10px 20px; /* Khoảng cách trong header */
+    background-color: #f8f9fa; /* Màu nền header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng cho header */
+}
+
+.logo img {
+    width: 100px; /* Điều chỉnh kích thước logo */
+    height: auto; /* Giữ tỉ lệ khung hình */
+}
+
+/* Style cho nav */
+nav {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa các link */
+}
+
+nav a {
+    text-decoration: none;
+    color: #333; /* Màu chữ */
+    font-weight: bold; /* Đậm chữ */
+    padding: 8px 12px; /* Khoảng cách bên trong */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi */
+}
+
+/* Hiệu ứng hover cho nav */
+nav a:hover {
+    background-color: #e9ecef; /* Màu nền khi hover */
+    border-radius: 5px; /* Bo góc cho nền */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Đặt các item thành cột */
+        align-items: flex-start; /* Căn trái cho các item */
+    }
+
+    nav {
+        flex-direction: column; /* Đặt các link nav thành cột */
+        width: 100%; /* Đảm bảo nav rộng bằng header */
+    }
+
+    nav a {
+        width: 100%; /* Đảm bảo các link nav rộng bằng header */
+        text-align: center; /* Căn giữa chữ */
+        padding: 12px 0; /* Khoảng cách bên trong tăng lên */
+    }
+}
+
+.filter-container {
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.filter {
+    margin-bottom: 15px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.product {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.product-title {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #777;
+    margin: 10px 0;
+}
+
+.product-price {
+    color: #e74c3c;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.product-rating {
+    font-size: 14px;
+    color: #f39c12;
+    margin: 10px 0;
+}
+
+.buy-button {
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+.buy-button:hover {
+    background-color: #2980b9;
+}

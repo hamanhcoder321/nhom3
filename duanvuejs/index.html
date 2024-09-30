@@ -8,60 +8,35 @@
     <link rel="stylesheet" href="./main.css">
     <script src="./vue.js"></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app" class="app">
-        <header>
-          <div class="header-left">
+      <header>
+        <div class="header-left">
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i> <!-- Icon menu hamburger -->
+          </button>
             <a href="#" class="logo">
               <img src="./img/image.png/image.png" alt="Logo">
             </a>
             <nav>
-              <a href="#">NAM <i class="fas fa-chevron-down"></i>
-                <ul>
-                  <li>Quần Nam</li>
-                  <li>Áo Nam</li>
-                  <li>Giày & phụ kiện</li>
-                  
-                </ul>
-              </a>
-              <a href="#">NỮ <i class="fas fa-chevron-down"></i>
-                <ul>
-                  <li>Quần Nữ</li>
-                  <li>Áo Nữ</li>
-                  <li>Giày & phụ kiện cho phái Nữ</li>
-                </ul>
-              </a>
+              <a href="./sanphamnam/main.html">NAM</a>
+              <a href="./sanphamnam/main.html">NỮ</a>
               <a href="#">NEW</a>
               <a href="#">BEST</a>
               <a href="#" class="highlight">ƯU ĐÃI</a>
-            </nav>
-            <nav class="mobile-sidebar" id="mobileSidebar">
-              <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <i class="fa-solid fa-bars"></i> <!-- Icon menu hamburger -->
-              </button>
-              <a href="#">NAM <i class="fas fa-chevron-down"></i>
-                <ul>
-                  <li>Quần Nam</li>
-                  <li>Áo Nam</li>
-                  <li>Giày & phụ kiện</li>
-                </ul>
-              </a>
-              <a href="#">NỮ <i class="fas fa-chevron-down"></i>
-                <ul>
-                  <li>Quần Nữ</li>
-                  <li>Áo Nữ</li>
-                  <li>Giày & phụ kiện cho phái Nữ</li>
-                </ul>
-              </a>
-              <a href="#">NEW</a>
-              <a href="#">BEST</a>
-              <a href="#" class="highlight">ƯU ĐÃI</a>
-              <button class="close-btn" id="closeBtn" aria-label="Close menu">
-                <i class="fas fa-times"></i> <!-- Icon đóng menu -->
-              </button>
             </nav>
           </div>
+          <nav class="mobile-sidebar" id="mobileSidebar">
+            <a href="./sanphamnam/main.html">NAM</a>
+            <a href="#">NỮ</a>
+            <a href="#">NEW</a>
+            <a href="#">BEST</a>
+            <a href="#" class="highlight">ƯU ĐÃI</a>
+            <button class="close-btn" id="closeBtn" aria-label="Close menu">
+              <i class="fas fa-times"></i> <!-- Icon đóng menu -->
+            </button>
+          </nav>
           <div class="header-right">
             <div class="search-bar">
               <i class="fas fa-search"></i>

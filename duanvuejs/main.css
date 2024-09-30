@@ -52,11 +52,6 @@ nav a {
   padding: 10px 0; /* Thêm khoảng cách trên dưới để căn giữa theo chiều dọc */
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
-}
-
 nav a.highlight {
   color: red;
 }
@@ -109,6 +104,10 @@ nav ul li {
   padding: 15px;
   white-space: nowrap; /* li ko xuống dòng*/ 
   border-bottom: 1px solid rgb(194, 192, 192);
+}
+.header-right {
+  display: flex;
+  align-items: center;
 }
 .icons a {
   position: relative;
@@ -208,100 +207,91 @@ nav ul li {
 }
 
 /* Ẩn sidebar trên màn hình lớn và hiển thị trên màn hình nhỏ */
+/* Sidebar mặc định ẩn */
 .mobile-sidebar {
-  display: none; 
-  position: fixed; /* Đặt thanh sidebar ở vị trí cố định */
-  top: 10px;
-  left: 35%; /* Chiều rộng của sidebar */
-  height: 45%;
-  background-color: #fff; /* Màu nền của sidebar */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Đổ bóng cho sidebar */
-  z-index: 1000; /* Đảm bảo thanh sidebar nằm trên các phần tử khác */
-  transform: translateX(-100%); /* Di chuyển sidebar ra ngoài màn hình */
-  transition: transform 0.3s ease; /* Hiệu ứng chuyển động khi mở/đóng sidebar */
+  display: none; /* Ẩn sidebar khi chưa được mở */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333; /* Màu nền cho sidebar */
+  overflow-y: auto; /* Thêm cuộn nếu nội dung quá dài */
+  z-index: 9999; /* Đảm bảo sidebar luôn ở trên cùng */
+  padding-top: 60px; /* Khoảng trống phía trên cho header */
+  transition: transform 0.3s ease; /* Hiệu ứng khi mở/đóng */
+  transform: translateX(-100%); /* Đẩy sidebar ra khỏi màn hình */
+}
+/* Hiển thị sidebar khi mở */
+.mobile-sidebar.active {
+  display: block;
+  transform: translateX(0); /* Đưa sidebar vào màn hình */
 }
 
-/* Hiển thị sidebar khi cần thiết */
-.mobile-sidebar.open {
-  transform: translateX(0); /* Hiện sidebar */
-}
-
-/* Kiểu cho các phần tử bên trong sidebar */
+/* Các liên kết trong sidebar */
 .mobile-sidebar a {
-  display: flex;
-  top: 26px;
-  display: block; /* Hiển thị các liên kết dưới dạng khối */
-  padding: 10px 10px;
+  display: block;
+  color: white; /* Màu chữ trắng */
+  padding: 12px 20px;
   text-decoration: none;
-  color: #333; /* Màu chữ */
-  font-size: 16px; /* Kích thước chữ */
-  height: 200px;
+  font-size: 18px; /* Tăng kích thước chữ */
 }
 
-/* Kiểu cho các nút đóng và mở */
+.mobile-sidebar a:hover {
+  background-color: #575757; /* Màu nền khi hover */
+}
+
+/* Nút đóng menu */
 .close-btn {
-  z-index: 1000;
   position: absolute;
-  top: 6px;
+  top: 10px;
   right: 20px;
+  font-size: 30px;
+  color: white;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 24px;
 }
-.menu-toggle{
-  position: absolute;
-  top: 6px;
-  left: 20px;
+
+/* Nút mở menu */
+.menu-toggle {
+  display: none;
   background: none;
   border: none;
+  font-size: 30px;
+  color: black;
   cursor: pointer;
-  font-size: 24px;
-  z-index: 1000;
-}
-.close-btn {
-  right: 20px; /* Đặt nút đóng ở góc trên bên phải */
 }
 
-/* Ẩn danh sách con khi không cần thiết */
-.mobile-sidebar ul {
-  display: none; /* Ẩn các danh sách con mặc định */
-  padding-left: 20px;
+/* Đảm bảo thanh tìm kiếm và menu toggle có thể hiển thị cạnh nhau */
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
 }
 
-.mobile-sidebar a.active ul {
-  display: block; /* Hiển thị danh sách con khi liên kết được chọn */
-}
 .search-bar {
   display: flex;
   align-items: center;
-  padding: 8px 12px; /* Tăng khoảng cách để tạo độ rộng và dễ sử dụng hơn */
-  margin-right: 15px;
-  border-bottom: 1px solid rgb(210, 210, 210); /* Tăng độ dày của đường viền để rõ nét hơn */
-  background-color: #f9f9f9; /* Thêm màu nền nhẹ để tạo độ nổi bật */
-  border-radius: 25px; /* Tạo các góc bo tròn mềm mại */
-  transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền khi hover */
-}
-
-.search-bar:hover {
-  background-color: #e6e6e6; /* Thay đổi màu nền khi hover */
-}
-
-.search-bar i {
-  font-size: 20px; /* Tăng kích thước icon để dễ nhìn hơn */
-  color: rgb(240, 102, 28); /* Màu sắc icon vẫn giữ nguyên */
-  margin-right: 10px; /* Tăng khoảng cách giữa icon và input */
+  padding: 8px 12px;
+  background-color: #f9f9f9;
+  border-radius: 25px;
 }
 
 .search-bar input {
   border: none;
   outline: none;
   font-size: 16px;
-  width: 100%;
-  background-color: transparent; /* Làm nền trong suốt để đồng nhất với .search-bar */
-  padding: 5px 0;
-  border-radius: 5px;
-  transition: width 0.3s ease; /* Hiệu ứng khi thay đổi kích thước */
+  background-color: transparent;
+}
+
+.search-bar i {
+  font-size: 20px; /* Tăng kích thước icon để dễ nhìn hơn */
+  color: rgb(240, 102, 28); /* Màu sắc icon vẫn giữ nguyên */
+  margin-right: 10px; /* Tăng khoảng cách giữa icon và input */
 }
 
 .search-bar input:focus {
@@ -584,7 +574,7 @@ nav ul li {
     padding-left: 8px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .img-link-item-2 img {
     width: 171px;
@@ -592,6 +582,7 @@ nav ul li {
     display: block;
     object-fit: cover; 
   }
+  
 }
 
 @media (max-width: 768px) {
