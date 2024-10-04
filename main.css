@@ -121,7 +121,7 @@ nav ul li {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.icons a:focus {
+.icons a:hover {
   color: rgb(46, 46, 46); /* Thay đổi màu khi hover */
   transform: scale(1.05); /* Phóng to nhẹ khi hover */
 }
@@ -301,7 +301,7 @@ header {
 
 .icons {
   display: flex;
-  gap: 20px;
+  gap: 12px;
   font-size: 20px;
   color: black;
 }
