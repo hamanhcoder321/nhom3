@@ -44,12 +44,7 @@
               <input type="text" placeholder="Tìm kiếm">
             </div>
             <div class="icons">
-                <a href="#"><i class="fas fa-user"></i>
-                  <ul>
-                    <li>Đăng Nhập</li>
-                    <li>Đăng Ký</li>
-                  </ul>
-                </a>
+                <a href="#"><i class="fas fa-user"></i></a>
                 <a href="./Giohang/giohang.html"><i class="fas fa-shopping-cart"></i></a>
             </div>
           </div>
@@ -88,7 +83,7 @@
           </div>
         </div>
         <div class="titile-1">
-          <h2>Hàng NEW</h2>
+          <h2>Hàng Trưng Bày</h2>
         </div>
         <div class="img-link-2">
           <div class="img-link-item-2" v-for="product in products" :key="product.id">
@@ -96,13 +91,11 @@
             <div class="price">
               <h4>{{ product.name }}</h4>
               <span>{{ product.price.toLocaleString() }}Đ</span>
-              <button class="buy-now" @click="buyNow(product)">Mua <i class="fas fa-shopping-cart"></i></button>
-              <button class="add-to-cart" @click="addToCart(product)">Thêm <i class="fas fa-shopping-cart"></i></button>
             </div>
           </div>
         </div>        
         <div class="titile-1">
-          <h2>Hàng NEW</h2>
+          <h2>Hàng Trưng Bày</h2>
         </div>
         <div class="img-link-2">
           <div class="img-link-item-2" v-for="product in products" :key="product.id">
@@ -110,8 +103,6 @@
             <div class="price">
               <h4>{{ product.name }}</h4>
               <span>{{ product.price.toLocaleString() }}Đ</span>
-              <button class="buy-now" @click="buyNow(product)">Mua <i class="fas fa-shopping-cart"></i></button>
-              <button class="add-to-cart" @click="addToCart(product)">Thêm <i class="fas fa-shopping-cart"></i></button>
             </div>
           </div>
         </div>        

@@ -6,7 +6,7 @@
     <title>sản phẩm nữ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="main3.css">
-    <script src="./vue.js"></script>
+    <script src="/vue.js"></script>
     <link rel="icon" type="image/png" href="./img/image.png/image.png">
 </head>
 <body>
@@ -34,17 +34,18 @@
             <label for="color">Màu sắc:</label>
             <select id="color" v-model="selectedColor">
                 <option value="all">Tất cả</option>
-                <option value="red">Đỏ</option>
-                <option value="blue">Xanh</option>
-                <option value="black">Đen</option>
-                <option value="white">Trắng</option>
+                <option value="đỏ">Đỏ</option>
+                <option value="Xanh">Xanh</option>
+                <option value="đen">Đen</option>
+                <option value="trắng">Trắng</option>
+                <option value="xám">xám</option>
             </select>
         </div>
         <div class="product-container">
             <div class="product" v-for="product in filteredProducts" :key="product.id">
                 <img :src="product.image" :alt="product.title" class="product-image">
                 <h2 class="product-title">{{ product.title }}</h2>
-                <p class="product-description">{{ product.description }}</p>
+                <!-- <p class="product-description">{{ product.description }}</p> -->
                 <p class="product-price">{{ product.price }} VND</p>
                 <div class="product-rating">{{ product.rating }}</div>
                 <button class="buy-now" @click="buyNow(product)">Mua <i class="fas fa-shopping-cart"></i></button>
@@ -55,25 +56,24 @@
     <script>
         new Vue({
             el: '#app',
-            data: {
-                selectedPriceRange: 'all',
-                selectedColor: 'all',
-                products: [
-                { id: 1,image: '../sanphamnam/NAM/66d0bff0c7875b58eb83bd16f768072e.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'xám' },
-                    { id: 2,image: '../sanphamnam/NAM/92-d4e94057-f245-4f87-9939-931bfac0d235.webp',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'Xanh' },
-                    { id: 3,image: '../sanphamnam/NAM/130.webp',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'trắng' },
-                    { id: 4,image: '../sanphamnam/NAM/5886def83d53b3c1320c9e38c6524aad.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'xám' },
-                    { id: 5,image: '../sanphamnam/NAM/418998d5a718ea1af68d246d575fb820.giay-nam-cong-so-da-bo-tre-trung-M213.webp',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
-                    { id: 6,image: '../sanphamnam/NAM/20191009_8AxO3wXlcFekyXGAAbFli4ms.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
-                    { id: 7,image: '../sanphamnam/NAM/afdt047-1l__2__077ae5567d054670a1610a4cbc05dc1c.webp',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'đen' },
-                    { id: 8,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
-                    { id: 9,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
-                    { id: 10,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
-                    { id: 12,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
-                    { id: 13,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' }
-                    // Thêm nhiều sản phẩm khác
-                ],
-                cart: JSON.parse(localStorage.getItem('cart')) || []
+            data() {
+                return {
+                    selectedPriceRange: 'all',
+                    selectedColor: 'all',
+                    products: [
+                        { id: 1, image: '../sanphamnu/imagenu/1-30.jpg', title: 'áo & quần váy nữ', price: 650000, rating: '⭐⭐⭐⭐☆', color: 'đen' },
+                        { id: 2, image: '../sanphamnu/imagenu/85ab67cf39586913136930aa754e9907.jpg', title: 'chân váy nữ', price: 560000, rating: '⭐⭐⭐⭐☆', color: 'đen' },
+                        { id: 3, image: '../sanphamnam/NAM/130.webp', title: 'giày thể thao', price: 620000, rating: '⭐⭐⭐⭐☆', color: 'trắng' },
+                        { id: 4, image: '../sanphamnam/NAM/5886def83d53b3c1320c9e38c6524aad.jpg', title: 'Quần thể thao Nam', price: 3000000, rating: '⭐⭐⭐⭐☆', color: 'xám' },
+                        { id: 5, image: '../sanphamnam/NAM/418998d5a718ea1af68d246d575fb820.giay-nam-cong-so-da-bo-tre-trung-M213.webp', title: 'giày nam màu đen', price: 700000, rating: '⭐⭐⭐⭐☆', color: 'đen' },
+                        { id: 6, image: '../sanphamnam/NAM/20191009_8AxO3wXlcFekyXGAAbFli4ms.jpg', title: 'Quần thể thao đen xám', price: 300000, rating: '⭐⭐⭐⭐☆', color: 'đen' },
+                        { id: 7, image: '../sanphamnam/NAM/afdt047-1l__2__077ae5567d054670a1610a4cbc05dc1c.webp', title: 'Áo phao ấm Nam & nữ', price: 650000, rating: '⭐⭐⭐⭐☆', color: 'đen' },
+                        { id: 8, image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg', title: 'áo vải nam chất lượng cao', price: 400000, rating: '⭐⭐⭐⭐☆', color: 'xanh' },
+                        { id: 9, image: '../sanphamnam/NAM/Ao-under-armour-den.jpg', title: 'áo under màu đen', price: 510000, rating: '⭐⭐⭐⭐☆', color: 'đen' },
+                        { id: 10, image: '../sanphamnam/NAM/dscf8576_e3e3da7ef08c4ed78205d2ce20aca0f4_master.jpg', title: 'Tất nam & nữ', price: 80000, rating: '⭐⭐⭐⭐☆', color: 'xám' }
+                    ],
+                    cart: JSON.parse(localStorage.getItem('cart')) || []
+                };
             },
             computed: {
                 filteredProducts() {
@@ -83,51 +83,51 @@
                             (this.selectedPriceRange === '500-1000' && product.price > 500000 && product.price <= 1000000) ||
                             (this.selectedPriceRange === '1000+' && product.price > 1000000);
                         
-                        const colorFilter = this.selectedColor === 'all' || product.color === this.selectedColor;
+                        const colorFilter = this.selectedColor === 'all' || product.color.toLowerCase() === this.selectedColor.toLowerCase();
                         
                         return priceFilter && colorFilter;
                     });
                 }
             },
             methods: {
-            // Hàm thêm vào giỏ hàng
-            addToCart(product) {
-                this.cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-                const cartProduct = this.cart.find(item => item.id === product.id);
-                if (cartProduct) {
-                    cartProduct.quantity++; // Tăng số lượng nếu sản phẩm đã có
-                } else {
-                    this.cart.push({ ...product, quantity: 1 }); // Thêm mới sản phẩm vào giỏ hàng
+                // Hàm thêm vào giỏ hàng
+                addToCart(product) {
+                    this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+                    const cartProduct = this.cart.find(item => item.id === product.id);
+                    if (cartProduct) {
+                        cartProduct.quantity++; // Tăng số lượng nếu sản phẩm đã có
+                    } else {
+                        this.cart.push({ ...product, quantity: 1 }); // Thêm mới sản phẩm vào giỏ hàng
+                    }
+    
+                    alert(`Bạn đã thêm ${product.title} với giá ${product.price.toLocaleString()} VND`);
+    
+                    // Cập nhật giỏ hàng trong localStorage
+                    localStorage.setItem('cart', JSON.stringify(this.cart));
+                },
+                // Hàm xử lý mua hàng
+                buyNow(product) {
+                    alert(`Bạn đã mua ${product.title} với giá ${product.price.toLocaleString()} VND`);
+    
+                    this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+                    const cartProduct = this.cart.find(item => item.id === product.id);
+                    if (cartProduct) {
+                        cartProduct.quantity++;
+                    } else {
+                        this.cart.push({ ...product, quantity: 1 });
+                    }
+    
+                    // Cập nhật giỏ hàng
+                    localStorage.setItem('cart', JSON.stringify(this.cart));
+                },
+                // Hàm kiểm tra tổng số sản phẩm trong giỏ hàng
+                cartItemCount() {
+                    return this.cart.reduce((total, product) => total + product.quantity, 0);
                 }
-
-                alert(`Bạn đã thêm ${product.title} với giá ${product.price.toLocaleString()} VND`);
-
-                // Cập nhật giỏ hàng trong localStorage
-                localStorage.setItem('cart', JSON.stringify(this.cart));
-            },
-            // Hàm xử lý mua hàng
-            buyNow(product) {
-                alert(`Bạn đã mua ${product.title} với giá ${product.price.toLocaleString()} VND`);
-
-                this.cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-                const cartProduct = this.cart.find(item => item.id === product.id);
-                if (cartProduct) {
-                    cartProduct.quantity++;
-                } else {
-                    this.cart.push({ ...product, quantity: 1 });
-                }
-
-                // Cập nhật giỏ hàng
-                localStorage.setItem('cart', JSON.stringify(this.cart));
-            },
-            // Hàm kiểm tra tổng số sản phẩm trong giỏ hàng
-            cartItemCount() {
-                return this.cart.reduce((total, product) => total + product.quantity, 0);
             }
-        }
         });
-    </script>
+    </script>    
 </body>
 </html>

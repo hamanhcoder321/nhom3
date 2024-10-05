@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 const productElement = document.createElement('div');
                 productElement.classList.add('cart-item');
                 productElement.innerHTML = `
-                    <img src="${product.img}" alt="${product.name}" width="100">
+                    <img src="${product.image}" alt="${product.title}" width="100">
                     <div class="product-info">
-                        <h3>${product.name}</h3>
+                        <h3>${product.title}</h3>
                         <p>Số lượng: ${product.quantity}</p>
                         <p>Giá: ${product.price.toLocaleString()} VND</p>
                         <button class="remove-btn" data-id="${product.id}">Xóa 1</button>
