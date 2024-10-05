@@ -33,10 +33,11 @@
             <label for="color">Màu sắc:</label>
             <select id="color" v-model="selectedColor">
                 <option value="all">Tất cả</option>
-                <option value="red">Đỏ</option>
-                <option value="blue">Xanh</option>
-                <option value="black">Đen</option>
-                <option value="white">Trắng</option>
+                <option value="đỏ">Đỏ</option>
+                <option value="Xanh">Xanh</option>
+                <option value="đen">Đen</option>
+                <option value="trắng">Trắng</option>
+                <option value="xám">xám</option>
             </select>
         </div>
         <div class="product-container">
@@ -61,79 +62,18 @@
                 selectedPriceRange: 'all',
                 selectedColor: 'all',
                 products: [
-                    {
-                        id: 1,
-                        image: 'path/to/image1.jpg',
-                        title: 'Tên sản phẩm 1',
-                        description: 'Mô tả ngắn về sản phẩm 1',
-                        price: 500000,
-                        rating: '⭐⭐⭐⭐☆',
-                        color: 'red'
-                    },
-                    {
-                        id: 2,
-                        image: 'path/to/image2.jpg',
-                        title: 'Tên sản phẩm 2',
-                        description: 'Mô tả ngắn về sản phẩm 2',
-                        price: 600000,
-                        rating: '⭐⭐⭐⭐⭐',
-                        color: 'blue'
-                    },
-                    {
-                        id: 2,
-                        image: 'path/to/image2.jpg',
-                        title: 'Tên sản phẩm 2',
-                        description: 'Mô tả ngắn về sản phẩm 2',
-                        price: 600000,
-                        rating: '⭐⭐⭐⭐⭐',
-                        color: 'blue'
-                    },
-                    {
-                        id: 2,
-                        image: 'path/to/image2.jpg',
-                        title: 'Tên sản phẩm 2',
-                        description: 'Mô tả ngắn về sản phẩm 2',
-                        price: 600000,
-                        rating: '⭐⭐⭐⭐⭐',
-                        color: 'blue'
-                    },
-                    {
-                        id: 2,
-                        image: 'path/to/image2.jpg',
-                        title: 'Tên sản phẩm 2',
-                        description: 'Mô tả ngắn về sản phẩm 2',
-                        price: 600000,
-                        rating: '⭐⭐⭐⭐⭐',
-                        color: 'blue'
-                    },
-                    {
-                        id: 2,
-                        image: 'path/to/image2.jpg',
-                        title: 'Tên sản phẩm 2',
-                        description: 'Mô tả ngắn về sản phẩm 2',
-                        price: 600000,
-                        rating: '⭐⭐⭐⭐⭐',
-                        color: 'blue'
-                    },
-                    {
-                        id: 2,
-                        image: 'path/to/image2.jpg',
-                        title: 'Tên sản phẩm 2',
-                        description: 'Mô tả ngắn về sản phẩm 2',
-                        price: 600000,
-                        rating: '⭐⭐⭐⭐⭐',
-                        color: 'blue'
-                    },
-                    {
-                        id: 2,
-                        image: 'path/to/image2.jpg',
-                        title: 'Tên sản phẩm 2',
-                        description: 'Mô tả ngắn về sản phẩm 2',
-                        price: 600000,
-                        rating: '⭐⭐⭐⭐⭐',
-                        color: 'blue'
-                    },
-                    // Thêm nhiều sản phẩm khác
+                    { id: 1,image: '../sanphamnam/NAM/66d0bff0c7875b58eb83bd16f768072e.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'xám' },
+                    { id: 2,image: '../sanphamnam/NAM/92-d4e94057-f245-4f87-9939-931bfac0d235.webp',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'Xanh' },
+                    { id: 3,image: '../sanphamnam/NAM/130.webp',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'trắng' },
+                    { id: 4,image: '../sanphamnam/NAM/5886def83d53b3c1320c9e38c6524aad.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'xám' },
+                    { id: 5,image: '../sanphamnam/NAM/418998d5a718ea1af68d246d575fb820.giay-nam-cong-so-da-bo-tre-trung-M213.webp',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
+                    { id: 6,image: '../sanphamnam/NAM/20191009_8AxO3wXlcFekyXGAAbFli4ms.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
+                    { id: 7,image: '../sanphamnam/NAM/afdt047-1l__2__077ae5567d054670a1610a4cbc05dc1c.webp',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'đen' },
+                    { id: 8,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
+                    { id: 9,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
+                    { id: 10,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
+                    { id: 12,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' },
+                    { id: 13,image: '../sanphamnam/NAM/ao-thun-polo-mau-thach-3.jpg',title: 'Tên sản phẩm 1',description: 'Mô tả ngắn về sản phẩm 1', price: 500000, rating: '⭐⭐⭐⭐☆',color: 'red' }
                 ],
                 cart: JSON.parse(localStorage.getItem('cart')) || []
             },
