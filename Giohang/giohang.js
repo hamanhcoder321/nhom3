@@ -54,7 +54,4 @@ document.addEventListener("DOMContentLoaded", function() {
             displayCartItems(); // Cập nhật giao diện giỏ hàng ngay lập tức
         }
     }
-
-    // Hiển thị giỏ hàng ban đầu khi tải trang
-    displayCartItems();
 });

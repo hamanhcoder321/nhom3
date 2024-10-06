@@ -104,6 +104,7 @@
                 // Cập nhật giỏ hàng trong localStorage
                 localStorage.setItem('cart', JSON.stringify(this.cart));
             },
+
             // Hàm xử lý mua hàng
             buyNow(product) {
                 alert(`Bạn đã mua ${product.title} với giá ${product.price.toLocaleString()} VND`);
