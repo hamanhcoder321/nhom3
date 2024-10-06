@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Hiển thị các sản phẩm trong giỏ hàng
             cart.forEach(product => {
                 const productElement = document.createElement('div');
-                productElement.classList.add('cart-item');
+                productElement.classList.add('cart-items');
                 productElement.innerHTML = `
                     <img src="${product.image}" alt="${product.title}" width="100">
                     <div class="product-info">
