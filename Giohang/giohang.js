@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function displayCartItems() {
         cartItemsContainer.innerHTML = ''; // Xóa hết sản phẩm cũ
         if (cart.length > 0) {
-            emptyMessage.style.display = 'none';
+            emptyMessage.style.display = 'block';
             // Hiển thị các sản phẩm trong giỏ hàng
             cart.forEach(product => {
                 const productElement = document.createElement('div');
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="product-info">
                         <h3>${product.title}</h3>
                         <p>Số lượng: ${product.quantity}</p>
-                        <p>Giá: ${product.price.toLocaleString()} VND</p>
+                        <p>Giá: ${product.price} VND</p>
                         <button class="remove-btn" data-id="${product.id}">Xóa 1</button>
                     </div>
                 `;
@@ -54,4 +54,5 @@ document.addEventListener("DOMContentLoaded", function() {
             displayCartItems(); // Cập nhật giao diện giỏ hàng ngay lập tức
         }
     }
+    displayCartItems();
 });
