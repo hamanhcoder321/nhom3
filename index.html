@@ -48,6 +48,21 @@
                 <a href="./Giohang/giohang.html"><i class="fas fa-shopping-cart"></i></a>
             </div>
           </div>
+          <div class="login-modal" id="loginModal">
+            <div class="login-content">
+              <span class="close-btn" id="loginCloseBtn">&times;</span>
+              <h2>Đăng Nhập</h2>
+              <form action="#" method="post">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
+                
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                
+                <button type="submit">Đăng Nhập</button>
+              </form>
+            </div>
+          </div>          
         </header>
         <div class="slideshow-container-1">
           <a class="prev" @click="plusSlides1(-1)">
