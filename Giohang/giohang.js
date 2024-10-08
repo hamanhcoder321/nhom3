@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function displayCartItems() {
         cartItemsContainer.innerHTML = ''; // Xóa hết sản phẩm cũ
         if (cart.length > 0) {
-            emptyMessage.style.display = 'block';
+            emptyMessage.style.display = 'none';
             // Hiển thị các sản phẩm trong giỏ hàng
             cart.forEach(product => {
                 const productElement = document.createElement('div');
