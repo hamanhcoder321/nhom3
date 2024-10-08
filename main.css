@@ -150,7 +150,7 @@ nav ul li {
   display: block; /* Hiển thị menu con khi focus */
   animation: fadeIn 0.3s ease-in-out; /* Hiệu ứng hiển thị */
 }
-/* CSS cho modal đăng nhập */
+/* CSS cho modal đăng nhập và đăng ký */
 .login-modal {
   display: none;
   position: fixed;
@@ -209,6 +209,16 @@ nav ul li {
 
 .close-btn:hover {
   color: red;
+}
+
+p {
+  margin-top: 15px;
+}
+
+p a {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 @keyframes fadeIn {
